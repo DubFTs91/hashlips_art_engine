@@ -3,25 +3,34 @@ const { MODE } = require(`${basePath}/constants/blend_mode.js`);
 const { NETWORK } = require(`${basePath}/constants/network.js`);
 
 const network = NETWORK.eth;
+//const network = NETWORK.sol; add for reference
 
 // General metadata for Ethereum
-const namePrefix = "Your Collection";
-const description = "Remember to replace this description";
+const namePrefix = "Collection Name";
+const description = "Today is 12/17/2021. Took me 3 days to figure out the windows // vs \\ isue.";
 const baseUri = "ipfs://NewUriToReplace";
 
 const solanaMetadata = {
-  symbol: "YC",
-  seller_fee_basis_points: 1000, // Define how much % you want from secondary market sales 1000 = 10%
-  external_url: "https://www.youtube.com/c/hashlipsnft",
+  symbol: "Dub",
+  seller_fee_basis_points: 777, // Define how much % you want from secondary market sales 1500 = 15%
+  external_url: "https://www.linkedin.com/in/justinwilliams7/",
+  
+  //share % MUST = 100%
   creators: [
     {
-      address: "7fXNuer5sbZtaTEPhtJ5g5gNtuyRoKkvxdjEjEnPN4mC",
-      share: 100,
+      address: "7fXNuer5sbZtaTEPhtJ5g5gNtuyRoKkvxdjEjEnPN4mC", //wallet adress
+      share: 100, //% of shares creator gets
     },
   ],
 };
 
-// If you have selected Solana then the collection starts from 0 automatically
+/*
+sol = 0 based
+eth = 1 based
+*/
+
+
+//configure to read layers from a file
 const layerConfigurations = [
   {
     growEditionSizeTo: 5,
@@ -37,9 +46,16 @@ const layerConfigurations = [
   },
 ];
 
+/*
+shuffleLayerConfigurations = false for TESTING
+shuffleLayerConfigurations = true before RELEASE
+
+*/
 const shuffleLayerConfigurations = false;
 
 const debugLogs = false;
+
+
 
 const format = {
   width: 512,
@@ -78,12 +94,14 @@ const background = {
   default: "#000000",
 };
 
+//ability to add addition metadata
 const extraMetadata = {};
 
 const rarityDelimiter = "#";
 
 const uniqueDnaTorrance = 10000;
 
+//creates a preview of the art collection
 const preview = {
   thumbPerRow: 5,
   thumbWidth: 50,
@@ -91,6 +109,7 @@ const preview = {
   imageName: "preview.png",
 };
 
+//creates a gif preview of the art collection
 const preview_gif = {
   numberOfImages: 5,
   order: "ASC", // ASC, DESC, MIXED
